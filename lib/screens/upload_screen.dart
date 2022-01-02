@@ -116,7 +116,9 @@ class _UploadScreenState extends State<UploadScreen> {
                                       '${snapShot.data?.bytesTransferred}/${snapShot.data?.totalBytes} ${snapShot.data?.state == TaskState.success ? 'Completed' : snapShot.data?.state == TaskState.running ? 'In progress' : 'Error'}'),
                                 )
                               : Container();
-                });
+                },
+                stream: uploadedTask[index].snapshotEvents,
+                );
               },
               separatorBuilder: (context, index) => const Divider(),
               itemCount: uploadedTask.length),
